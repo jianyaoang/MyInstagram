@@ -177,14 +177,15 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eo7-8o-Kj8" customClass="FriendImageView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="316" height="238"/>
+                                                    <rect key="frame" x="0.0" y="55" width="316" height="183"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <gestureRecognizers/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <outlet property="imageView" destination="eo7-8o-Kj8" id="c6i-nD-18X"/>
+                                            <outlet property="imageView" destination="eo7-8o-Kj8" id="Kfe-tI-p3k"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -368,7 +369,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jt-PA-nXe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="945" y="1104"/>
+            <point key="canvasLocation" x="611" y="1110"/>
         </scene>
         <!--Share View Controller-->
         <scene sceneID="m2a-Dm-wkc">
@@ -407,7 +408,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PGS-kv-2hw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1325" y="1104"/>
+            <point key="canvasLocation" x="1043" y="1110"/>
         </scene>
         <!--Edit View Controller-->
         <scene sceneID="T1x-Ta-NaV">
@@ -470,7 +471,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="9oG-qx-woj">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ISF-ub-Etn">
                                     <size key="itemSize" width="110" height="110"/>
@@ -493,6 +494,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <outlet property="imageView" destination="maS-kK-fDG" id="235-DX-hek"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

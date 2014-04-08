@@ -82,8 +82,6 @@
 -(void)CreateRandomPhotosForUsers
 {
 
-
-
 //    for (int i=0; i < 20; i++)
 //    {
 //        int width = 270 + arc4random()%100;

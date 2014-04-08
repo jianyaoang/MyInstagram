@@ -26,15 +26,22 @@
     self.myImage.image = self.imageFromCameraViewController;
 }
 
+
 - (IBAction)onShareButtonPressed:(UIButton*)sender
 {
     PFObject *object = [PFObject objectWithClassName:@"Photo"];
-    NSData *fileData = UIImagePNGRepresentation(self.myImage.image);
-    PFFile *file = [PFFile fileWithName:@"sunset" data:fileData];
-    [object setObject:file forKey:@"photo"];
-    [object setObject:[PFUser currentUser] forKey:@"user"];
     
-     NSLog(@"This is my fileData%@",fileData);
+    // Resize image
+    UIGraphicsBeginImageContext(CGSizeMake(640, 960));
+    [self.myImage.image drawInRect: CGRectMake(0, 0, 640, 960)];
+    UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    NSData *fileData = UIImageJPEGRepresentation(smallImage, 1.0f);
+    PFFile *file = [PFFile fileWithName:@"image" data:fileData];
+    [object setObject:file forKey:@"image"];
+    [object setObject:[PFUser currentUser] forKey:@"user"];
+
     [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
     {
         if (error)
@@ -42,10 +49,6 @@
             NSLog(@"%@",[error userInfo]);
         }
     }];
-    
-   
-    
-
 }
 
 

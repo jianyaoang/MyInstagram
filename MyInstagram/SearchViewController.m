@@ -16,6 +16,7 @@
     IBOutlet UICollectionView *searchCollectionView;
     IBOutlet UISearchBar *mySearchBar;
     NSArray* users;
+    NSString* lastSearch;
 }
 @end
 
@@ -34,6 +35,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self onViewLoadSearch];
 }
 
 
@@ -44,13 +46,14 @@
     if (searchBar.text.length !=0)
     {
         NSString* searchString = [searchBar.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-        [self queryParseForUserPhotos:searchString];
+        [self onViewLoadSearch:searchString];
         [searchBar resignFirstResponder];
+        lastSearch = searchString;
     }
 }
 
 //query searches for Users by name
-- (void)queryParseForUserPhotos:(NSString*)searchText
+- (void)onViewLoadSearch:(NSString*)searchText
 {
     //set the object class to look for
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
@@ -63,7 +66,7 @@
         if (!error)
         {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %d photos.", objects.count);
+            NSLog(@"Successfully retrieved %uld photos.", objects.count);
             
             //assign result array of photos to our array
             users = objects;
@@ -75,6 +78,43 @@
             NSLog(@"Error: %@ %@", error, [error userInfo]);
         }
     }];
+}
+
+
+//query searches for Users by name
+- (void)onViewLoadSearch
+{
+    //set the object class to look for
+    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    
+    NSString* date = [NSString stringWithFormat:@"%@",[NSDate date]];
+    
+    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc]init];
+    
+    dateFormatter.dateStyle  = NSDateFormatterMediumStyle;
+    
+    //set the field to search and the value of the field
+    [query whereKey:@"updatedAt" equalTo:[NSString stringWithFormat:@"%@",[dateFormatter dateFromString:date]]];
+    
+    NSLog(@"date: %@", [dateFormatter dateFromString:date]);
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+     {
+         if (!error)
+         {
+             // The find succeeded.
+             NSLog(@"Successfully retrieved %uld photos.", objects.count);
+             
+             //assign result array of photos to our array
+             users = objects;
+             [searchCollectionView reloadData];
+         }
+         else
+         {
+             // Log details of the failure
+             NSLog(@"Error: %@ %@", error, [error userInfo]);
+         }
+     }];
 }
 
 

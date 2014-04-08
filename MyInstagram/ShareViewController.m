@@ -7,6 +7,7 @@
 //
 
 #import "ShareViewController.h"
+#import <Parse/Parse.h>
 
 @interface ShareViewController ()
 {
@@ -18,36 +19,35 @@
 
 @implementation ShareViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.myImage.image = self.imageFromCameraViewController;
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)onShareButtonPressed:(UIButton*)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    PFObject *object = [PFObject objectWithClassName:@"Photo"];
+    NSData *fileData = UIImagePNGRepresentation(self.myImage.image);
+    PFFile *file = [PFFile fileWithName:@"sunset" data:fileData];
+    [object setObject:file forKey:@"photo"];
+    [object setObject:[PFUser currentUser] forKey:@"user"];
+    
+     NSLog(@"This is my fileData%@",fileData);
+    [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+    {
+        if (error)
+        {
+            NSLog(@"%@",[error userInfo]);
+        }
+    }];
+    
+   
+    
+
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

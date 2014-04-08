@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ShareViewController : UIViewController
-
+@property (strong,nonatomic) IBOutlet UIImageView *myImage;
+@property UIImage *imageFromCameraViewController;
 @end

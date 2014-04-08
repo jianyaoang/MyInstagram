@@ -7,43 +7,75 @@
 //
 
 #import "CameraViewController.h"
+#import "ShareViewController.h"
+@interface CameraViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
-@interface CameraViewController ()
+@property (strong, nonatomic) IBOutlet UIImageView *myImageView;
 
 @end
 
 @implementation CameraViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSData *fileData = UIImagePNGRepresentation([UIImage imageNamed:@"chicagosunset.jpg"]);
+    self.myImageView.image = [UIImage imageWithData:fileData];
+    
+//    self.myImageView.image = [UIImage imageNamed:@"harrypotter"];
 }
 
-- (void)didReceiveMemoryWarning
+- (IBAction)onCameraBarButtonPressed:(UIBarButtonItem*)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self takePictures:sender];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(void)takePictures:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+    UIImagePickerController *imagePicker = [UIImagePickerController new];
+    [imagePicker setDelegate:self];
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypeCamera];
+        imagePicker.modalPresentationStyle = UIModalPresentationCurrentContext;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        imagePicker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeCamera];
+        
+        [self presentViewController:imagePicker animated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    else
+    {
+        [imagePicker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        imagePicker.modalPresentationStyle = UIModalPresentationCurrentContext;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        imagePicker.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
+        
+        [self presentViewController:imagePicker animated:YES completion:nil];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
-*/
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *image = [info objectForKey:UIImagePickerControllerOriginalImage];
+    [self.myImageView setImage:image];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton*)sender
+{
+    if ([segue.identifier isEqualToString:@"ToShowShareViewController"])
+    {
+        ShareViewController *vc = segue.destinationViewController;
+//        UIImage *image = [UIImage imageNamed:@"harrypotter"];
+//        vc.myImage.image = image;
+        vc.imageFromCameraViewController = self.myImageView.image;
+    }
+}
+
 
 @end

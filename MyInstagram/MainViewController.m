@@ -24,6 +24,8 @@
 {
     [super viewDidLoad];
     
+    [PFUser enableAutomaticUser];
+    
     PFObject *user1 = [PFObject objectWithClassName:@"User"];
     NSData *fileData = UIImagePNGRepresentation([UIImage imageNamed:@"chicagosunset.jpg"]);
     PFFile *file = [PFFile fileWithName:@"chicagosunset.png" data:fileData];

@@ -359,18 +359,40 @@
                     <view key="view" contentMode="scaleToFill" id="r2Q-nF-Wke">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xap-2E-Ohx">
+                                <rect key="frame" x="25" y="93" width="275" height="235"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7f-EA-f55">
+                                <rect key="frame" x="260" y="349" width="32" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Pu9-RN-utc" kind="push" identifier="ToShowShareViewController" id="nPp-JC-PcW"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Camera" id="w4D-cj-NoU"/>
+                    <navigationItem key="navigationItem" title="Camera" id="dg4-Vu-MOf">
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="GDo-l0-Xt6">
+                            <connections>
+                                <action selector="onCameraBarButtonPressed:" destination="mzA-hr-qKT" id="Caq-Dx-at3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <segue destination="Pu9-RN-utc" kind="push" identifier="ShowShareView" id="gzq-kf-eqU"/>
+                        <outlet property="myImageView" destination="Xap-2E-Ohx" id="g2s-TL-f3I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jt-PA-nXe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="945" y="1104"/>
+            <point key="canvasLocation" x="1433" y="1104"/>
         </scene>
-        <!--Share View Controller-->
+        <!--Share View Controller - Share-->
         <scene sceneID="m2a-Dm-wkc">
             <objects>
                 <viewController id="Pu9-RN-utc" customClass="ShareViewController" sceneMemberID="viewController">
@@ -383,7 +405,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QGp-1B-khU" customClass="CaptionTextView">
-                                <rect key="frame" x="0.0" y="25" width="320" height="104"/>
+                                <rect key="frame" x="0.0" y="65" width="320" height="118"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.70196080207824707" green="0.70196080207824707" blue="0.70196080207824707" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -394,20 +416,33 @@
                                 </connections>
                             </textView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sP0-Z9-ACd">
-                                <rect key="frame" x="8" y="32" width="124" height="90"/>
+                                <rect key="frame" x="10" y="76" width="134" height="97"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOa-O6-dQL">
+                                <rect key="frame" x="20" y="495" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onShareButtonPressed:" destination="Pu9-RN-utc" eventType="touchUpInside" id="rnf-KY-WLb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ct3-Xy-fY2"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Share" id="ct3-Xy-fY2"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="captionTextView" destination="QGp-1B-khU" id="Ejy-It-Fa7"/>
+                        <outlet property="myImage" destination="sP0-Z9-ACd" id="sMd-UX-p7e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PGS-kv-2hw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1325" y="1104"/>
+            <point key="canvasLocation" x="1851" y="1104"/>
         </scene>
         <!--Edit View Controller-->
         <scene sceneID="T1x-Ta-NaV">
@@ -455,7 +490,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oDr-9X-6ik" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2054" y="530"/>
+            <point key="canvasLocation" x="2580" y="530"/>
         </scene>
         <!--Search View Controller - Search-->
         <scene sceneID="YSk-Ie-ngd">
@@ -536,7 +571,7 @@
                         <segue destination="cIC-2U-yaw" kind="relationship" relationship="viewControllers" id="LjW-Pd-E7G"/>
                         <segue destination="fiy-Uo-3Qb" kind="relationship" relationship="viewControllers" id="d40-I5-Iuj"/>
                         <segue destination="bbW-j6-ql8" kind="relationship" relationship="viewControllers" id="W44-Dq-GM9"/>
-                        <segue destination="mzA-hr-qKT" kind="relationship" relationship="viewControllers" id="ZYc-BY-7tn"/>
+                        <segue destination="X1c-X2-GMJ" kind="relationship" relationship="viewControllers" id="ZYc-BY-7tn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i6e-sc-rKI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -581,6 +616,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M4H-cZ-irN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1114" y="248"/>
+        </scene>
+        <!--Navigation Controller - Camera-->
+        <scene sceneID="6fv-D6-9lg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X1c-X2-GMJ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Camera" id="w4D-cj-NoU"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MPS-dD-yTU">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mzA-hr-qKT" kind="relationship" relationship="rootViewController" id="qu3-oj-3HW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bez-6x-VVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="945" y="1104"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

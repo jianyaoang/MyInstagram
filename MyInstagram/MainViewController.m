@@ -66,12 +66,14 @@
     NSLog(@"tap gesture recognized");
     
     //create an activity and associate to user
+    
+    NSURL* url =[NSURL URLWithString:@"http://placekitten.com/320/320"];
+    
     PFObject* like = [PFObject objectWithClassName:@"Activity"];
     like[@"fromUser"] = [PFUser currentUser];
     like[@"type"] = @"like";
-    like[@"photo"] = nil;
+    like[@"photo"] = [NSData dataWithContentsOfURL:url];
     like[@"content"]= [NSString stringWithFormat:@"%@ liked your photo",[PFUser currentUser]];
-    
     like[@"fromUser"] = [PFUser currentUser];
     
     

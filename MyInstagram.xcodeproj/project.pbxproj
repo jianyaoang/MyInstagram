@@ -16,7 +16,6 @@
 		41526B1F18F33C8B008F8ECE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B1E18F33C8B008F8ECE /* main.m */; };
 		41526B2318F33C8B008F8ECE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B2218F33C8B008F8ECE /* AppDelegate.m */; };
 		41526B2918F33C8B008F8ECE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B2818F33C8B008F8ECE /* MainViewController.m */; };
-		41526B2B18F33C8B008F8ECE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 41526B2A18F33C8B008F8ECE /* Images.xcassets */; };
 		41526B3218F33C8B008F8ECE /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41526B3118F33C8B008F8ECE /* XCTest.framework */; };
 		41526B3318F33C8B008F8ECE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41526B1218F33C8B008F8ECE /* Foundation.framework */; };
 		41526B3418F33C8B008F8ECE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41526B1618F33C8B008F8ECE /* UIKit.framework */; };
@@ -45,6 +44,7 @@
 		41526B7D18F35E17008F8ECE /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41526B7C18F35E17008F8ECE /* Security.framework */; };
 		41526B7F18F35E1E008F8ECE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41526B7E18F35E1E008F8ECE /* StoreKit.framework */; };
 		41526B8118F35E26008F8ECE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41526B8018F35E26008F8ECE /* SystemConfiguration.framework */; };
+		4195AAE918F4B8A800133091 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4195AAE818F4B8A800133091 /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +72,6 @@
 		41526B2218F33C8B008F8ECE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		41526B2718F33C8B008F8ECE /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		41526B2818F33C8B008F8ECE /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		41526B2A18F33C8B008F8ECE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		41526B3018F33C8B008F8ECE /* MyInstagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyInstagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		41526B3118F33C8B008F8ECE /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		41526B3918F33C8B008F8ECE /* MyInstagramTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MyInstagramTests-Info.plist"; sourceTree = "<group>"; };
@@ -113,6 +112,7 @@
 		41526B7C18F35E17008F8ECE /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		41526B7E18F35E1E008F8ECE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		41526B8018F35E26008F8ECE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		4195AAE818F4B8A800133091 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,7 +223,7 @@
 				41526B2818F33C8B008F8ECE /* MainViewController.m */,
 				4107FA7C18F38CDE000521CB /* armitagemorning.jpg */,
 				4107FA7A18F38CD0000521CB /* chicagosunset.jpg */,
-				41526B2A18F33C8B008F8ECE /* Images.xcassets */,
+				4195AAE818F4B8A800133091 /* Images.xcassets */,
 				41526B1918F33C8B008F8ECE /* Supporting Files */,
 			);
 			path = MyInstagram;
@@ -335,8 +335,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4107FA7B18F38CD0000521CB /* chicagosunset.jpg in Resources */,
+				4195AAE918F4B8A800133091 /* Images.xcassets in Resources */,
 				41526B6A18F350F3008F8ECE /* Main.storyboard in Resources */,
-				41526B2B18F33C8B008F8ECE /* Images.xcassets in Resources */,
 				41526B1D18F33C8B008F8ECE /* InfoPlist.strings in Resources */,
 				4107FA7D18F38CDE000521CB /* armitagemorning.jpg in Resources */,
 			);

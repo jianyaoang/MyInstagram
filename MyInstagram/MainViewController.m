@@ -30,7 +30,26 @@
     //[self CreateRandomPhotosForUsers];
     
     [self queryParseForUserPhotos];
+    
+    
+    UITabBar *tabBar = self.tabBarController.tabBar;
+ 
+    UITabBarItem *main = [tabBar.items objectAtIndex:0];
+    UITabBarItem *search = [tabBar.items objectAtIndex:1];
+    UITabBarItem *followers = [tabBar.items objectAtIndex:2];
+    UITabBarItem *profile = [tabBar.items objectAtIndex:3];
+    UITabBarItem *camera = [tabBar.items objectAtIndex:4];
+    
+    main = [[[self.tabBarController.viewControllers objectAtIndex:0]tabBarItem]initWithTitle:nil image:[UIImage imageNamed:@"main"] selectedImage:[UIImage imageNamed:@"main"]];
+    
+    search = [[[self.tabBarController.viewControllers objectAtIndex:1]tabBarItem]initWithTitle:nil image:[UIImage imageNamed:@"search"] selectedImage:[UIImage imageNamed:@"search"]];
+    
+    followers = [[[self.tabBarController.viewControllers objectAtIndex:2]tabBarItem]initWithTitle:nil image:[UIImage imageNamed:@"followers"] selectedImage:[UIImage imageNamed:@"followers"]];
+    
+    profile = [[[self.tabBarController.viewControllers objectAtIndex:3]tabBarItem]initWithTitle:nil image:[UIImage imageNamed:@"profile"] selectedImage:[UIImage imageNamed:@"profile"]];
 
+    camera = [[[self.tabBarController.viewControllers objectAtIndex:4]tabBarItem]initWithTitle:nil image:[UIImage imageNamed:@"camera"] selectedImage:[UIImage imageNamed:@"camera"]];
+    
 }
 
 

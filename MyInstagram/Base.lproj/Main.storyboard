@@ -147,7 +147,7 @@
             </objects>
             <point key="canvasLocation" x="2054" y="-1013"/>
         </scene>
-        <!--Main View Controller - Main-->
+        <!--Main View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="MainViewController" sceneMemberID="viewController">
@@ -197,7 +197,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Main" id="MsH-Tj-Fzz"/>
+                    <tabBarItem key="tabBarItem" title="" id="MsH-Tj-Fzz"/>
                     <connections>
                         <outlet property="myCollectionView" destination="17Q-DK-XNL" id="GFb-tV-71o"/>
                     </connections>
@@ -362,11 +362,11 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xap-2E-Ohx">
-                                <rect key="frame" x="25" y="93" width="275" height="147"/>
+                                <rect key="frame" x="20" y="81" width="280" height="291"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T7f-EA-f55">
-                                <rect key="frame" x="260" y="349" width="32" height="30"/>
+                                <rect key="frame" x="268" y="380" width="32" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Next">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -500,7 +500,7 @@
             </objects>
             <point key="canvasLocation" x="2028" y="366"/>
         </scene>
-        <!--Search View Controller - Search-->
+        <!--Search View Controller-->
         <scene sceneID="YSk-Ie-ngd">
             <objects>
                 <viewController id="cIC-2U-yaw" customClass="SearchViewController" sceneMemberID="viewController">
@@ -557,7 +557,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" id="9Pn-4S-se3"/>
+                    <tabBarItem key="tabBarItem" id="9Pn-4S-se3"/>
                     <connections>
                         <outlet property="mySearchBar" destination="Nac-2a-U05" id="Lv5-oa-4K6"/>
                         <outlet property="searchCollectionView" destination="9oG-qx-woj" id="Isx-nU-lJx"/>

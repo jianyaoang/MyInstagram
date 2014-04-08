@@ -183,6 +183,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <outlet property="imageView" destination="eo7-8o-Kj8" id="c6i-nD-18X"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

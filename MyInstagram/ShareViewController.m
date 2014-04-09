@@ -40,6 +40,8 @@
     
     NSData *fileData = UIImageJPEGRepresentation(smallImage, 1.0f);
     PFFile *file = [PFFile fileWithName:@"image" data:fileData];
+    
+    //PFFile *file = [PFFile fileWithData:fileData];  //the way files are loaded in main
     [object setObject:file forKey:@"image"];
     [object setObject:[PFUser currentUser] forKey:@"user"];
 

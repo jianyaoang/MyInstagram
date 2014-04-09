@@ -12,7 +12,7 @@
 
 @interface MainViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 {
-    NSArray *photos;
+    NSMutableArray *photos;
     IBOutlet UICollectionView *myCollectionView;
     IBOutlet UITextField *commentText;
 
@@ -26,12 +26,16 @@
 {
     [super viewDidLoad];
 
+    photos = [NSMutableArray new];
+    
     //assign an automated user
     [PFUser enableAutomaticUser];
     
     //[self CreateRandomPhotosForUsers];
     
-    [self queryParseForUserPhotos];
+    //[self queryParseForUserPhotos];
+    
+    [self getLikedPhotos];
     
     
     UITabBar *tabBar = self.tabBarController.tabBar;
@@ -61,7 +65,7 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
     
     //set the field to search and the value of the field
-    [query whereKey:@"user" equalTo:[PFUser currentUser]]; //replace with current user or !current user for search
+    [query whereKey:@"user" notEqualTo:[PFUser currentUser]]; //replace with current user or !current user for search
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error)
@@ -70,7 +74,7 @@
             //NSLog(@"Successfully retrieved %d photos.", objects.count);
             
             //assign result array of photos to our array
-            photos = objects;
+            photos = [NSMutableArray arrayWithArray:objects];
             [myCollectionView reloadData];
         }
         else
@@ -81,7 +85,11 @@
     }];
 }
 
-
+/*
+ * When a user double taps the photo create a Like activity for that
+ * photo with the current user as the fromUser and the creator of the
+ * photo being the toUser
+ */
 - (IBAction)onPhotoDoubleTapped:(UITapGestureRecognizer *)sender
 {
 
@@ -93,9 +101,6 @@
         //get the index path for the point
         NSIndexPath *indexPath = [myCollectionView indexPathForItemAtPoint:point];
         
-        //get a reference to that cell
-//        ImageCollectionViewCell* cell = (ImageCollectionViewCell*)[myCollectionView cellForItemAtIndexPath:indexPath];
-        
         //get the photo object that was liked
         PFObject *photo = photos[indexPath.row];
         
@@ -105,7 +110,7 @@
             PFObject* like = [PFObject objectWithClassName:@"Activity"];
             [like setObject:@"like" forKey:@"ActivityType"];
             [like setObject:[PFUser currentUser] forKey:@"fromUser"];
-            [like setObject:[PFUser currentUser] forKey:@"toUser"];
+            [like setObject:photo[@"user"] forKey:@"toUser"];
             [like setObject:photo forKey:@"photo"];
 
             
@@ -121,9 +126,78 @@
 
 }
 
+
+//temp method to get photos liked by a user
+-(void)getLikedPhotos
+{
+ 
+     //set the object class to look for activites
+    PFQuery *activityQuery = [PFQuery queryWithClassName:@"Activity"];
+    
+    //set the field to search and the value of the field
+    [activityQuery whereKey:@"ActivityType" equalTo:@"like"];
+    [activityQuery whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+    
+    // Include the post data with each comment
+    [activityQuery includeKey:@"photo"];
+    
+    //now we need to search the query results for the photos
+//    PFQuery *photoQuery = [PFQuery queryWithClassName:@"Photo"];
+//    
+//    //query the likes that were found to get th photos DOES NOT WORK ON POINTERS!!
+//    [photoQuery whereKey:@"user" matchesKey:@"toUser" inQuery:activityQuery];
+    
+    
+    [activityQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error)
+        {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d liked photos.", objects.count);
+            
+            //loop over all the activities and get the photo for each one,
+            //then add it to the photo array
+            for (PFObject *activity in objects)
+            {
+                // This does not require a network access.
+                PFObject *photo = activity[@"photo"];
+                [photos addObject:photo];
+                
+                NSLog(@"retrieved related photo: %@", photo);
+            }
+            
+            [myCollectionView reloadData];
+        }
+        else
+        {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+    }];
+
+}
+
+
+
 -(void)CreateRandomPhotosForUsers
 {
 
+//    // Resize image
+//    UIImage* image = [UIImage imageNamed:@"armitagemorning.jpg"];
+//    
+//    UIGraphicsBeginImageContext(CGSizeMake(640, 960));
+//    [image drawInRect: CGRectMake(0, 0, 640, 960)];
+//    UIImage *smallImage = UIGraphicsGetImageFromCurrentImageContext();
+//    UIGraphicsEndImageContext();
+//    
+//    NSData *fileData = UIImageJPEGRepresentation(smallImage, 1.0f);
+//    
+//    PFFile *file = [PFFile fileWithData:fileData];
+//    
+//    PFObject* object = [PFObject objectWithClassName:@"Photo"];
+//    [object setObject:file forKey:@"image"];
+//    [object setObject:[PFUser currentUser] forKey:@"user"];
+    
+    
 //    for (int i=0; i < 20; i++)
 //    {
 //        int width = 270 + arc4random()%100;

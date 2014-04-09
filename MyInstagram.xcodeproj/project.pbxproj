@@ -43,6 +43,8 @@
 		41526B7F18F35E1E008F8ECE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41526B7E18F35E1E008F8ECE /* StoreKit.framework */; };
 		41526B8118F35E26008F8ECE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41526B8018F35E26008F8ECE /* SystemConfiguration.framework */; };
 		4195AAE918F4B8A800133091 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4195AAE818F4B8A800133091 /* Images.xcassets */; };
+		CE4AD4A218F5DB93001FD9D4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4AD4A118F5DB93001FD9D4 /* LoginViewController.m */; };
+		CE4AD4A518F5DC0E001FD9D4 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4AD4A418F5DC0E001FD9D4 /* SignupViewController.m */; };
 		CEB19CC718F4D6F9009D972A /* FollowingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB19CC618F4D6F9009D972A /* FollowingViewController.m */; };
 		CEB19CCA18F4D746009D972A /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB19CC918F4D746009D972A /* NewsViewController.m */; };
 /* End PBXBuildFile section */
@@ -109,6 +111,10 @@
 		41526B7E18F35E1E008F8ECE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		41526B8018F35E26008F8ECE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4195AAE818F4B8A800133091 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CE4AD4A018F5DB93001FD9D4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		CE4AD4A118F5DB93001FD9D4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		CE4AD4A318F5DC0E001FD9D4 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		CE4AD4A418F5DC0E001FD9D4 /* SignupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
 		CEB19CC518F4D6F9009D972A /* FollowingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingViewController.h; sourceTree = "<group>"; };
 		CEB19CC618F4D6F9009D972A /* FollowingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingViewController.m; sourceTree = "<group>"; };
 		CEB19CC818F4D746009D972A /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
@@ -221,6 +227,10 @@
 				41526B4818F33D83008F8ECE /* ImageCollectionViewCell.m */,
 				41526B2718F33C8B008F8ECE /* MainViewController.h */,
 				41526B2818F33C8B008F8ECE /* MainViewController.m */,
+				CE4AD4A018F5DB93001FD9D4 /* LoginViewController.h */,
+				CE4AD4A118F5DB93001FD9D4 /* LoginViewController.m */,
+				CE4AD4A318F5DC0E001FD9D4 /* SignupViewController.h */,
+				CE4AD4A418F5DC0E001FD9D4 /* SignupViewController.m */,
 				4107FA7C18F38CDE000521CB /* armitagemorning.jpg */,
 				4107FA7A18F38CD0000521CB /* chicagosunset.jpg */,
 				4195AAE818F4B8A800133091 /* Images.xcassets */,
@@ -360,11 +370,13 @@
 				41526B6718F34F9E008F8ECE /* FollowersViewController.m in Sources */,
 				CEB19CC718F4D6F9009D972A /* FollowingViewController.m in Sources */,
 				41526B2918F33C8B008F8ECE /* MainViewController.m in Sources */,
+				CE4AD4A518F5DC0E001FD9D4 /* SignupViewController.m in Sources */,
 				41526B5818F34753008F8ECE /* ProfileViewController.m in Sources */,
 				41526B2318F33C8B008F8ECE /* AppDelegate.m in Sources */,
 				41526B6D18F35197008F8ECE /* ProfileFollowingViewController.m in Sources */,
 				41526B5B18F34987008F8ECE /* EditViewController.m in Sources */,
 				41526B5E18F34C1E008F8ECE /* CameraViewController.m in Sources */,
+				CE4AD4A218F5DB93001FD9D4 /* LoginViewController.m in Sources */,
 				41526B4918F33D83008F8ECE /* ImageCollectionViewCell.m in Sources */,
 				41526B6418F34DC3008F8ECE /* CaptionTextView.m in Sources */,
 				41526B4C18F33EAB008F8ECE /* FriendImageView.m in Sources */,

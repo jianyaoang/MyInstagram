@@ -87,23 +87,17 @@
     //set the object class to look for
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
     
-    NSString* date = [NSString stringWithFormat:@"%@",[NSDate date]];
-    
-    NSDateFormatter* dateFormatter = [[NSDateFormatter alloc]init];
-    
-    dateFormatter.dateStyle  = NSDateFormatterMediumStyle;
-    
+    NSDate *date = [[NSDate alloc]initWithTimeIntervalSinceNow:-86400];
+  
     //set the field to search and the value of the field
-    [query whereKey:@"updatedAt" equalTo:[NSString stringWithFormat:@"%@",[dateFormatter dateFromString:date]]];
-    
-    NSLog(@"date: %@", [dateFormatter dateFromString:date]);
+    [query whereKey:@"updatedAt" greaterThan:date];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
      {
          if (!error)
          {
              // The find succeeded.
-             NSLog(@"Successfully retrieved %uld photos.", objects.count);
+             //NSLog(@"Successfully retrieved %uld photos.", objects.count);
              
              //assign result array of photos to our array
              users = objects;

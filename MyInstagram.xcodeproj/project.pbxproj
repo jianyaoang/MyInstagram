@@ -24,8 +24,6 @@
 		41526B4918F33D83008F8ECE /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B4818F33D83008F8ECE /* ImageCollectionViewCell.m */; };
 		41526B4C18F33EAB008F8ECE /* FriendImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B4B18F33EAB008F8ECE /* FriendImageView.m */; };
 		41526B4F18F34040008F8ECE /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B4E18F34040008F8ECE /* SearchViewController.m */; };
-		41526B5218F34258008F8ECE /* FollowingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B5118F34258008F8ECE /* FollowingViewController.m */; };
-		41526B5518F34446008F8ECE /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B5418F34446008F8ECE /* NewsViewController.m */; };
 		41526B5818F34753008F8ECE /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B5718F34753008F8ECE /* ProfileViewController.m */; };
 		41526B5B18F34987008F8ECE /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B5A18F34987008F8ECE /* EditViewController.m */; };
 		41526B5E18F34C1E008F8ECE /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B5D18F34C1E008F8ECE /* CameraViewController.m */; };
@@ -45,6 +43,8 @@
 		41526B7F18F35E1E008F8ECE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41526B7E18F35E1E008F8ECE /* StoreKit.framework */; };
 		41526B8118F35E26008F8ECE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41526B8018F35E26008F8ECE /* SystemConfiguration.framework */; };
 		4195AAE918F4B8A800133091 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4195AAE818F4B8A800133091 /* Images.xcassets */; };
+		CEB19CC718F4D6F9009D972A /* FollowingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB19CC618F4D6F9009D972A /* FollowingViewController.m */; };
+		CEB19CCA18F4D746009D972A /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB19CC918F4D746009D972A /* NewsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,10 +83,6 @@
 		41526B4B18F33EAB008F8ECE /* FriendImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendImageView.m; sourceTree = "<group>"; };
 		41526B4D18F34040008F8ECE /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		41526B4E18F34040008F8ECE /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
-		41526B5018F34258008F8ECE /* FollowingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingViewController.h; sourceTree = "<group>"; };
-		41526B5118F34258008F8ECE /* FollowingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingViewController.m; sourceTree = "<group>"; };
-		41526B5318F34446008F8ECE /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
-		41526B5418F34446008F8ECE /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		41526B5618F34753008F8ECE /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		41526B5718F34753008F8ECE /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		41526B5918F34987008F8ECE /* EditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditViewController.h; sourceTree = "<group>"; };
@@ -113,6 +109,10 @@
 		41526B7E18F35E1E008F8ECE /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		41526B8018F35E26008F8ECE /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		4195AAE818F4B8A800133091 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		CEB19CC518F4D6F9009D972A /* FollowingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingViewController.h; sourceTree = "<group>"; };
+		CEB19CC618F4D6F9009D972A /* FollowingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingViewController.m; sourceTree = "<group>"; };
+		CEB19CC818F4D746009D972A /* NewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		CEB19CC918F4D746009D972A /* NewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +195,10 @@
 				41526B2118F33C8B008F8ECE /* AppDelegate.h */,
 				41526B2218F33C8B008F8ECE /* AppDelegate.m */,
 				41526B6818F350F3008F8ECE /* Main.storyboard */,
+				CEB19CC818F4D746009D972A /* NewsViewController.h */,
+				CEB19CC918F4D746009D972A /* NewsViewController.m */,
+				CEB19CC518F4D6F9009D972A /* FollowingViewController.h */,
+				CEB19CC618F4D6F9009D972A /* FollowingViewController.m */,
 				41526B6B18F35197008F8ECE /* ProfileFollowingViewController.h */,
 				41526B6C18F35197008F8ECE /* ProfileFollowingViewController.m */,
 				41526B6518F34F9E008F8ECE /* FollowersViewController.h */,
@@ -209,10 +213,6 @@
 				41526B5A18F34987008F8ECE /* EditViewController.m */,
 				41526B5618F34753008F8ECE /* ProfileViewController.h */,
 				41526B5718F34753008F8ECE /* ProfileViewController.m */,
-				41526B5318F34446008F8ECE /* NewsViewController.h */,
-				41526B5418F34446008F8ECE /* NewsViewController.m */,
-				41526B5018F34258008F8ECE /* FollowingViewController.h */,
-				41526B5118F34258008F8ECE /* FollowingViewController.m */,
 				41526B4D18F34040008F8ECE /* SearchViewController.h */,
 				41526B4E18F34040008F8ECE /* SearchViewController.m */,
 				41526B4A18F33EAB008F8ECE /* FriendImageView.h */,
@@ -358,18 +358,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				41526B6718F34F9E008F8ECE /* FollowersViewController.m in Sources */,
+				CEB19CC718F4D6F9009D972A /* FollowingViewController.m in Sources */,
 				41526B2918F33C8B008F8ECE /* MainViewController.m in Sources */,
 				41526B5818F34753008F8ECE /* ProfileViewController.m in Sources */,
-				41526B5218F34258008F8ECE /* FollowingViewController.m in Sources */,
 				41526B2318F33C8B008F8ECE /* AppDelegate.m in Sources */,
 				41526B6D18F35197008F8ECE /* ProfileFollowingViewController.m in Sources */,
 				41526B5B18F34987008F8ECE /* EditViewController.m in Sources */,
-				41526B5518F34446008F8ECE /* NewsViewController.m in Sources */,
 				41526B5E18F34C1E008F8ECE /* CameraViewController.m in Sources */,
 				41526B4918F33D83008F8ECE /* ImageCollectionViewCell.m in Sources */,
 				41526B6418F34DC3008F8ECE /* CaptionTextView.m in Sources */,
 				41526B4C18F33EAB008F8ECE /* FriendImageView.m in Sources */,
 				41526B4F18F34040008F8ECE /* SearchViewController.m in Sources */,
+				CEB19CCA18F4D746009D972A /* NewsViewController.m in Sources */,
 				41526B6118F34CD3008F8ECE /* ShareViewController.m in Sources */,
 				41526B1F18F33C8B008F8ECE /* main.m in Sources */,
 			);

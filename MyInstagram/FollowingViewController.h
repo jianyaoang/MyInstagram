@@ -2,12 +2,12 @@
 //  FollowingViewController.h
 //  MyInstagram
 //
-//  Created by Jian Yao Ang on 4/7/14.
+//  Created by user on 4/8/14.
 //  Copyright (c) 2014 Jian Yao Ang. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
-@interface FollowingViewController : UIViewController
+@interface FollowingViewController : PFQueryTableViewController
 
 @end

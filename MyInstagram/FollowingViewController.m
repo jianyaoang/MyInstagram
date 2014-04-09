@@ -2,13 +2,13 @@
 //  FollowingViewController.m
 //  MyInstagram
 //
-//  Created by Jian Yao Ang on 4/7/14.
+//  Created by user on 4/8/14.
 //  Copyright (c) 2014 Jian Yao Ang. All rights reserved.
 //
 
 #import "FollowingViewController.h"
 
-@interface FollowingViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface FollowingViewController ()
 
 @end
 
@@ -26,50 +26,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
 }
 
-
-//query searches for Users by name
-- (void)onViewLoadSearch
+- (void)didReceiveMemoryWarning
 {
-    //set the object class to look for
-    PFQuery *query = [PFQuery queryWithClassName:@"User"];
-    
-    NSDate *date = [[NSDate alloc]initWithTimeIntervalSinceNow:-86400];
-    
-    //set the field to search and the value of the field
-    [query whereKey:@"updatedAt" greaterThan:date];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
-     {
-         if (!error)
-         {
-             // The find succeeded.
-             //NSLog(@"Successfully retrieved %uld photos.", objects.count);
-             
-             //assign result array of photos to our array
-             users = objects;
-             [searchCollectionView reloadData];
-         }
-         else
-         {
-             // Log details of the failure
-             NSLog(@"Error: %@ %@", error, [error userInfo]);
-         }
-     }];
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - UICollectionViewDelegate Methods
+/*
+#pragma mark - Navigation
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    return 0;
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
 }
-
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"followingCellID"];
-    return cell;
-}
+*/
 
 @end

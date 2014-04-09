@@ -148,7 +148,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eo7-8o-Kj8" customClass="FriendImageView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="250"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="285"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <gestureRecognizers/>
                                                 </imageView>
@@ -165,17 +165,34 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="nO5-5q-gKq"/>
                                 </connections>
                             </collectionView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Im5-DL-dm0">
+                                <rect key="frame" x="20" y="266" width="200" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WdL-m0-jSW">
+                                <rect key="frame" x="235" y="265" width="68" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Comment">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCommentButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pVa-EI-jNZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="MsH-Tj-Fzz"/>
                     <connections>
+                        <outlet property="commentText" destination="Im5-DL-dm0" id="9DL-1d-c0U"/>
                         <outlet property="myCollectionView" destination="17Q-DK-XNL" id="GFb-tV-71o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="588" y="-233"/>
+            <point key="canvasLocation" x="651" y="-289"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="wiG-SJ-OsM">

@@ -82,20 +82,35 @@
 
 - (IBAction)onPhotoDoubleTapped:(UITapGestureRecognizer *)sender
 {
-    NSLog(@"tap gesture recognized");
-    
-    //create an activity and associate to user
-    
-    NSURL* url =[NSURL URLWithString:@"http://placekitten.com/320/320"];
-    
-    PFObject* like = [PFObject objectWithClassName:@"Activity"];
-    like[@"fromUser"] = [PFUser currentUser];
-    like[@"type"] = @"like";
-    like[@"photo"] = [NSData dataWithContentsOfURL:url];
-    like[@"content"]= [NSString stringWithFormat:@"%@ liked your photo",[PFUser currentUser]];
-    like[@"fromUser"] = [PFUser currentUser];
-    
-    
+
+    if (sender.state == UIGestureRecognizerStateEnded)
+    {
+        CGPoint point = [sender locationInView:myCollectionView];
+        NSIndexPath *indexPath = [myCollectionView indexPathForItemAtPoint:point];
+        ImageCollectionViewCell* cell = (ImageCollectionViewCell*)[myCollectionView cellForItemAtIndexPath:indexPath];
+        
+        NSData* data = UIImageJPEGRepresentation(cell.imageView.image, 0.5f);
+        
+        
+        if (indexPath)
+        {
+            NSLog(@"Image was double tapped");
+            PFObject* like = [PFObject objectWithClassName:@"Activity"];
+            [like setObject:@"like" forKey:@"ActivityType"];
+            [like setObject:[PFUser currentUser] forKey:@"fromUser"];
+            [like setObject:[PFUser currentUser]  forKey:@"toUser"];
+            [like setObject:data forKey:@"photo"];
+            
+            [like saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+             {
+                if (error)
+                {
+                    NSLog(@"%@",[error userInfo]);
+                }
+            }];
+        }
+    }
+
 }
 
 -(void)CreateRandomPhotosForUsers

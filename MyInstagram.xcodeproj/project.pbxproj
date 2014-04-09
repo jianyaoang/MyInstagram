@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4107FA7B18F38CD0000521CB /* chicagosunset.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4107FA7A18F38CD0000521CB /* chicagosunset.jpg */; };
 		4107FA7D18F38CDE000521CB /* armitagemorning.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4107FA7C18F38CDE000521CB /* armitagemorning.jpg */; };
+		4150E43818F5FF6900DEA418 /* CommentTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4150E43718F5FF6900DEA418 /* CommentTableView.m */; };
 		41526B1318F33C8B008F8ECE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41526B1218F33C8B008F8ECE /* Foundation.framework */; };
 		41526B1518F33C8B008F8ECE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41526B1418F33C8B008F8ECE /* CoreGraphics.framework */; };
 		41526B1718F33C8B008F8ECE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41526B1618F33C8B008F8ECE /* UIKit.framework */; };
@@ -62,6 +63,8 @@
 /* Begin PBXFileReference section */
 		4107FA7A18F38CD0000521CB /* chicagosunset.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = chicagosunset.jpg; sourceTree = "<group>"; };
 		4107FA7C18F38CDE000521CB /* armitagemorning.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = armitagemorning.jpg; sourceTree = "<group>"; };
+		4150E43618F5FF6800DEA418 /* CommentTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTableView.h; sourceTree = "<group>"; };
+		4150E43718F5FF6900DEA418 /* CommentTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTableView.m; sourceTree = "<group>"; };
 		41526B0F18F33C8B008F8ECE /* MyInstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyInstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		41526B1218F33C8B008F8ECE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		41526B1418F33C8B008F8ECE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -225,6 +228,8 @@
 				41526B4B18F33EAB008F8ECE /* FriendImageView.m */,
 				41526B4718F33D83008F8ECE /* ImageCollectionViewCell.h */,
 				41526B4818F33D83008F8ECE /* ImageCollectionViewCell.m */,
+				4150E43618F5FF6800DEA418 /* CommentTableView.h */,
+				4150E43718F5FF6900DEA418 /* CommentTableView.m */,
 				41526B2718F33C8B008F8ECE /* MainViewController.h */,
 				41526B2818F33C8B008F8ECE /* MainViewController.m */,
 				CE4AD4A018F5DB93001FD9D4 /* LoginViewController.h */,
@@ -371,6 +376,7 @@
 				CEB19CC718F4D6F9009D972A /* FollowingViewController.m in Sources */,
 				41526B2918F33C8B008F8ECE /* MainViewController.m in Sources */,
 				CE4AD4A518F5DC0E001FD9D4 /* SignupViewController.m in Sources */,
+				4150E43818F5FF6900DEA418 /* CommentTableView.m in Sources */,
 				41526B5818F34753008F8ECE /* ProfileViewController.m in Sources */,
 				41526B2318F33C8B008F8ECE /* AppDelegate.m in Sources */,
 				41526B6D18F35197008F8ECE /* ProfileFollowingViewController.m in Sources */,

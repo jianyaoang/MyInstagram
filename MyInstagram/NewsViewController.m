@@ -25,25 +25,19 @@
 
 - (void)viewDidLoad
 {
+    self.parseClassName = @"User";
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 
-- (void)didReceiveMemoryWarning
+
+- (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    PFTableViewCell* cell = [super tableView:tableView cellForRowAtIndexPath:indexPath object:object];
+    cell.imageView.file = [object objectForKey:@"photo"];
+    [cell.imageView loadInBackground];
+    return cell;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

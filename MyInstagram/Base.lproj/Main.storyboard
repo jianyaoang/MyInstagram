@@ -37,14 +37,14 @@
                                 <segment title="Second"/>
                             </segments>
                             <connections>
-                                <segue destination="ss8-fJ-DYa" kind="push" id="lZ8-GT-7q8"/>
+                                <segue destination="ss8-fJ-DYa" kind="push" identifier="showNews" id="lZ8-GT-7q8"/>
                             </connections>
                         </segmentedControl>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d7I-Mr-kzJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1049" y="-938"/>
+            <point key="canvasLocation" x="1007" y="-932"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="iDk-u9-bof">
@@ -69,11 +69,11 @@
                             <outlet property="delegate" destination="ss8-fJ-DYa" id="7F2-mi-6Ni"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="cY4-rI-RfD"/>
+                    <navigationItem key="navigationItem" id="Xve-46-QWL"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCL-Iu-mwu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1429" y="-938"/>
+            <point key="canvasLocation" x="1427" y="-932"/>
         </scene>
         <!--Followers View Controller-->
         <scene sceneID="Eq7-JN-IJ2">
@@ -576,7 +576,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="VYl-ZS-CZd" kind="push" id="mzD-I6-p1g"/>
+                        <segue destination="VYl-ZS-CZd" kind="push" identifier="showFollowers" id="mzD-I6-p1g"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="im9-tc-Cbj" userLabel="First Responder" sceneMemberID="firstResponder"/>

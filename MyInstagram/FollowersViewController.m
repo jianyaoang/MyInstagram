@@ -9,6 +9,10 @@
 #import "FollowersViewController.h"
 
 @interface FollowersViewController () <UITableViewDataSource, UITableViewDelegate>
+{
+    
+    __weak IBOutlet UITableView *followingTableView;
+}
 
 @end
 

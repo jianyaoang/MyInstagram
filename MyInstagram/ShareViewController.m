@@ -24,6 +24,7 @@
 {
     [super viewDidLoad];
     self.myImage.image = self.imageFromCameraViewController;
+    
 }
 
 
@@ -50,6 +51,8 @@
         }
     }];
 }
+
+
 
 
 

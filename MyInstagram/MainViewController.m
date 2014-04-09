@@ -14,6 +14,8 @@
 {
     NSArray *users;
     IBOutlet UICollectionView *myCollectionView;
+    IBOutlet UITextField *commentText;
+
 }
 
 @end
@@ -49,7 +51,7 @@
     profile = [[[self.tabBarController.viewControllers objectAtIndex:3]tabBarItem]initWithTitle:nil image:[UIImage imageNamed:@"profile"] selectedImage:[UIImage imageNamed:@"profile"]];
 
     camera = [[[self.tabBarController.viewControllers objectAtIndex:4]tabBarItem]initWithTitle:nil image:[UIImage imageNamed:@"camera"] selectedImage:[UIImage imageNamed:@"camera"]];
-    
+
 }
 
 
@@ -171,6 +173,28 @@
     return cell;
 }
 
+
+- (IBAction)onCommentButtonPressed:(id)sender
+{
+    [self enterComment];
+    commentText.text = @"";
+    [commentText resignFirstResponder];
+}
+
+-(void)enterComment
+{
+    PFObject *comment = [PFObject objectWithClassName:@"Activity"];
+    comment[@"comment"] = commentText.text;
+
+    [comment setObject:[PFUser currentUser] forKey:@"user"];
+    
+    [comment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+    {
+        if (error) {
+            NSLog(@"%@",[error userInfo]);
+        }
+    }];
+}
 
 
 @end

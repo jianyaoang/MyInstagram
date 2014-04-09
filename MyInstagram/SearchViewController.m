@@ -80,7 +80,6 @@
     }];
 }
 
-
 //query searches for Users by name
 - (void)onViewLoadSearch
 {

@@ -67,7 +67,7 @@
         if (!error)
         {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %d photos.", objects.count);
+            //NSLog(@"Successfully retrieved %d photos.", objects.count);
             
             //assign result array of photos to our array
             users = objects;
@@ -87,10 +87,16 @@
 
     if (sender.state == UIGestureRecognizerStateEnded)
     {
+        //find the point that was tapped
         CGPoint point = [sender locationInView:myCollectionView];
+        
+        //get the index path for the point
         NSIndexPath *indexPath = [myCollectionView indexPathForItemAtPoint:point];
+        
+        //get a reference to that cell
         ImageCollectionViewCell* cell = (ImageCollectionViewCell*)[myCollectionView cellForItemAtIndexPath:indexPath];
         
+        //create an NSData object for the image
         NSData* data = UIImageJPEGRepresentation(cell.imageView.image, 0.5f);
         
         
@@ -100,7 +106,7 @@
             PFObject* like = [PFObject objectWithClassName:@"Activity"];
             [like setObject:@"like" forKey:@"ActivityType"];
             [like setObject:[PFUser currentUser] forKey:@"fromUser"];
-            [like setObject:[PFUser currentUser]  forKey:@"toUser"];
+            [like setObject:[PFUser currentUser] forKey:@"toUser"];
             [like setObject:data forKey:@"photo"];
             
             [like saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
@@ -144,6 +150,8 @@
 //    }
 
 }
+
+#pragma mark - UICollectionViewDelegate Methods
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {

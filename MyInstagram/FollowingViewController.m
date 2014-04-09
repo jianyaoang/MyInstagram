@@ -2,13 +2,13 @@
 //  FollowingViewController.m
 //  MyInstagram
 //
-//  Created by Jian Yao Ang on 4/7/14.
+//  Created by user on 4/8/14.
 //  Copyright (c) 2014 Jian Yao Ang. All rights reserved.
 //
 
 #import "FollowingViewController.h"
 
-@interface FollowingViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface FollowingViewController ()
 
 @end
 
@@ -25,18 +25,22 @@
 
 - (void)viewDidLoad
 {
+    self.parseClassName = @"User";
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (void)didReceiveMemoryWarning
 {
-    return 0;
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
--(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"followingCellID"];
+    PFTableViewCell* cell = [super tableView:tableView cellForRowAtIndexPath:indexPath object:object];
+    cell.imageView.file = [object objectForKey:@"photo"];
+    [cell.imageView loadInBackground];
     return cell;
 }
 

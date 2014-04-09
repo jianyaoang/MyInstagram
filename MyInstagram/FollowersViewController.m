@@ -9,6 +9,11 @@
 #import "FollowersViewController.h"
 
 @interface FollowersViewController () <UITableViewDataSource, UITableViewDelegate>
+{
+    
+    __weak IBOutlet UITableView *followersTableView;
+    NSArray* following;
+}
 
 @end
 
@@ -31,12 +36,14 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return following.count;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FollowersCellID"];
+    
+    cell.imageView.image = following[indexPath.row];
     return cell;
 }
 

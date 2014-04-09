@@ -9,6 +9,10 @@
 #import "ProfileFollowingViewController.h"
 
 @interface ProfileFollowingViewController () <UITableViewDelegate, UITableViewDataSource>
+{
+    
+    __weak IBOutlet UITableView *profileTableView;
+}
 
 @end
 

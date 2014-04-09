@@ -85,10 +85,16 @@
 
     if (sender.state == UIGestureRecognizerStateEnded)
     {
+        //find the point that was tapped
         CGPoint point = [sender locationInView:myCollectionView];
+        
+        //get the index path for the point
         NSIndexPath *indexPath = [myCollectionView indexPathForItemAtPoint:point];
+        
+        //get a reference to that cell
         ImageCollectionViewCell* cell = (ImageCollectionViewCell*)[myCollectionView cellForItemAtIndexPath:indexPath];
         
+        //create an NSData object for the image
         NSData* data = UIImageJPEGRepresentation(cell.imageView.image, 0.5f);
         
         

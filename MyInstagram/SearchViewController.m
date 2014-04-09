@@ -46,6 +46,7 @@
     if (searchBar.text.length !=0)
     {
         NSString* searchString = [searchBar.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        searchString = [searchString lowercaseString];
         [self onViewLoadSearch:searchString];
         [searchBar resignFirstResponder];
         lastSearch = searchString;
@@ -66,7 +67,7 @@
         if (!error)
         {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %uld photos.", objects.count);
+            //NSLog(@"Successfully retrieved %uld photos.", objects.count);
             
             //assign result array of photos to our array
             users = objects;

@@ -12,7 +12,7 @@
 
 @interface MainViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 {
-    NSArray *users;
+    NSArray *photos;
     IBOutlet UICollectionView *myCollectionView;
 }
 
@@ -56,10 +56,10 @@
 - (void)queryParseForUserPhotos
 {
     //set the object class to look for
-    PFQuery *query = [PFQuery queryWithClassName:@"User"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
     
     //set the field to search and the value of the field
-    [query whereKey:@"username" equalTo:@"jay"]; //replace with current user or !current user for search
+    [query whereKey:@"user" equalTo:[PFUser currentUser]]; //replace with current user or !current user for search
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error)
@@ -68,7 +68,7 @@
             //NSLog(@"Successfully retrieved %d photos.", objects.count);
             
             //assign result array of photos to our array
-            users = objects;
+            photos = objects;
             [myCollectionView reloadData];
         }
         else
@@ -92,11 +92,10 @@
         NSIndexPath *indexPath = [myCollectionView indexPathForItemAtPoint:point];
         
         //get a reference to that cell
-        ImageCollectionViewCell* cell = (ImageCollectionViewCell*)[myCollectionView cellForItemAtIndexPath:indexPath];
+//        ImageCollectionViewCell* cell = (ImageCollectionViewCell*)[myCollectionView cellForItemAtIndexPath:indexPath];
         
-        //create an NSData object for the image
-        NSData* data = UIImageJPEGRepresentation(cell.imageView.image, 0.5f);
-        
+        //get the photo object that was liked
+        PFObject *photo = photos[indexPath.row];
         
         if (indexPath)
         {
@@ -105,7 +104,8 @@
             [like setObject:@"like" forKey:@"ActivityType"];
             [like setObject:[PFUser currentUser] forKey:@"fromUser"];
             [like setObject:[PFUser currentUser] forKey:@"toUser"];
-            [like setObject:data forKey:@"photo"];
+            [like setObject:photo forKey:@"photo"];
+
             
             [like saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
              {
@@ -133,11 +133,11 @@
 //        
 //        NSData* data = [NSData dataWithContentsOfURL:url];
 //        
-//        PFObject* object = [PFObject objectWithClassName:@"User"];
+//        PFObject* object = [PFObject objectWithClassName:@"Photo"];
 //        PFFile* file = [PFFile fileWithData:data];
 //        
-//        [object setObject:file forKey:@"photo"];
-//        [object setObject:@"dennis" forKey:@"username"];
+//        [object setObject:file forKey:@"image"];
+//        [object setObject:[PFUser currentUser] forKey:@"user"];
 //        [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
 //        {
 //            if (error)
@@ -153,7 +153,7 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return users.count;
+    return photos.count;
 }
 
 
@@ -172,8 +172,14 @@
    
     
     ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageCellIdentifier" forIndexPath:indexPath];
-    PFObject* user = users[indexPath.row];
-    PFFile* file = user[@"photo"];
+    
+    //retrieve image from user object
+    //    PFObject* user = users[indexPath.row];
+    //    PFFile* file = user[@"photo"];
+    
+    //retreive image from photo obejct
+    PFObject *photo = photos[indexPath.row];
+    PFFile* file = photo[@"image"];
     NSData* data = [file getData];
     cell.imageView.image = [UIImage imageWithData:data];
     return cell;

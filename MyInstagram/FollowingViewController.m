@@ -30,11 +30,12 @@
     
 }
 
-- (void)didReceiveMemoryWarning
+
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+     self.parseClassName = @"User";
 }
+
 
 - (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {

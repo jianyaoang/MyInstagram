@@ -9,13 +9,12 @@
 #import "MainViewController.h"
 #import "ImageCollectionViewCell.h"
 #import <Parse/Parse.h>
+#import "CommentTableView.h"
 
 @interface MainViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 {
     NSArray *photos;
     IBOutlet UICollectionView *myCollectionView;
-    IBOutlet UITextField *commentText;
-
 }
 
 @end
@@ -187,28 +186,14 @@
     return cell;
 }
 
-
-- (IBAction)onCommentButtonPressed:(id)sender
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(ImageCollectionViewCell*)sender
 {
-    [self enterComment];
-    commentText.text = @"";
-    [commentText resignFirstResponder];
+
+    CommentTableView* vc = segue.destinationViewController;
+    NSIndexPath* indexPath = [myCollectionView indexPathForCell:sender];
+    vc.photo = photos[indexPath.row];
 }
 
--(void)enterComment
-{
-    PFObject *comment = [PFObject objectWithClassName:@"Activity"];
-    comment[@"comment"] = commentText.text;
-
-    [comment setObject:[PFUser currentUser] forKey:@"user"];
-    
-    [comment saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
-    {
-        if (error) {
-            NSLog(@"%@",[error userInfo]);
-        }
-    }];
-}
 
 
 @end

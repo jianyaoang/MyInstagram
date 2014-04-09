@@ -134,21 +134,21 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="b3b-yN-2sr">
-                                    <size key="itemSize" width="300" height="285"/>
+                                    <size key="itemSize" width="300" height="239"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="imageCellIdentifier" id="hnI-XO-8gQ" customClass="ImageCollectionViewCell">
-                                        <rect key="frame" x="10" y="0.0" width="300" height="285"/>
+                                        <rect key="frame" x="10" y="64" width="300" height="239"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="285"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="239"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eo7-8o-Kj8" customClass="FriendImageView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="285"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="239"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <gestureRecognizers/>
                                                 </imageView>
@@ -157,6 +157,7 @@
                                         </view>
                                         <connections>
                                             <outlet property="imageView" destination="eo7-8o-Kj8" id="Kfe-tI-p3k"/>
+                                            <segue destination="kF3-RX-CD5" kind="push" identifier="ShowCommentTableView" id="wfl-jI-Yqh"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -165,35 +166,74 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="nO5-5q-gKq"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WdL-m0-jSW">
-                                <rect key="frame" x="232" y="388" width="68" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Comment">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onCommentButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="pVa-EI-jNZ"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Im5-DL-dm0">
-                                <rect key="frame" x="15" y="389" width="200" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" id="MsH-Tj-Fzz"/>
+                    <navigationItem key="navigationItem" id="9BB-d5-j1k"/>
                     <connections>
-                        <outlet property="commentText" destination="Im5-DL-dm0" id="9DL-1d-c0U"/>
                         <outlet property="myCollectionView" destination="17Q-DK-XNL" id="GFb-tV-71o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="651" y="-289"/>
+            <point key="canvasLocation" x="1177" y="-289"/>
+        </scene>
+        <!--Comment Table View-->
+        <scene sceneID="8YT-tX-a3i">
+            <objects>
+                <tableViewController id="kF3-RX-CD5" customClass="CommentTableView" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="32" sectionHeaderHeight="22" sectionFooterHeight="22" id="qq6-3x-euu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="xyl-6P-36Y">
+                            <rect key="frame" x="0.0" y="118" width="320" height="54"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DaI-Qx-rUN">
+                                    <rect key="frame" x="6" y="8" width="205" height="36"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" red="0.7019608021" green="0.7019608021" blue="0.7019608021" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                </textView>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d3T-Qh-WBT">
+                                    <rect key="frame" x="219" y="14" width="68" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Comment">
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onCommentButtonPressed:" destination="kF3-RX-CD5" eventType="touchUpInside" id="J8U-dJ-0OX"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        </view>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCellID" rowHeight="32" id="f71-tg-iM6">
+                                <rect key="frame" x="0.0" y="86" width="320" height="32"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f71-tg-iM6" id="FYy-Xd-GjM">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="31"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="kF3-RX-CD5" id="cJi-Xl-ICo"/>
+                            <outlet property="delegate" destination="kF3-RX-CD5" id="66f-hh-Xug"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="R26-5w-gSv"/>
+                    <connections>
+                        <outlet property="commentTableView" destination="qq6-3x-euu" id="dEt-J2-bQE"/>
+                        <outlet property="commentTextView" destination="DaI-Qx-rUN" id="S9u-ep-HMw"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nSm-XA-PJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1643" y="-257"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="wiG-SJ-OsM">
@@ -296,7 +336,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VsG-8E-SYM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1524" y="248"/>
+            <point key="canvasLocation" x="2050" y="248"/>
         </scene>
         <!--Profile Following View Controller-->
         <scene sceneID="6r0-rQ-7mv">
@@ -339,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mfm-ab-DC1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2062" y="-257"/>
+            <point key="canvasLocation" x="2588" y="-257"/>
         </scene>
         <!--Camera View Controller - Camera-->
         <scene sceneID="rxv-wi-ZJI">
@@ -570,7 +610,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="Lwu-ye-EqN"/>
+                        <segue destination="4lX-as-ttT" kind="relationship" relationship="viewControllers" id="Lwu-ye-EqN"/>
                         <segue destination="cIC-2U-yaw" kind="relationship" relationship="viewControllers" id="LjW-Pd-E7G"/>
                         <segue destination="fiy-Uo-3Qb" kind="relationship" relationship="viewControllers" id="d40-I5-Iuj"/>
                         <segue destination="bbW-j6-ql8" kind="relationship" relationship="viewControllers" id="W44-Dq-GM9"/>
@@ -618,7 +658,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M4H-cZ-irN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1114" y="248"/>
+            <point key="canvasLocation" x="1114" y="311"/>
         </scene>
         <!--Navigation Controller - Camera-->
         <scene sceneID="6fv-D6-9lg">
@@ -638,6 +678,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bez-6x-VVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="505" y="1104"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="pLQ-Dt-IFs">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4lX-as-ttT" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" id="MsH-Tj-Fzz"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1zs-vf-CFE">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="tzX-9o-Ibe"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fxi-Da-27B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="651" y="-289"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -9,6 +9,10 @@
 #import "FollowingViewController.h"
 
 @interface FollowingViewController ()
+{
+    IBOutlet UITableView *followingTableView;
+}
+
 
 @end
 

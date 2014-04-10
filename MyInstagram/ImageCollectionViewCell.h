@@ -10,5 +10,6 @@
 
 @interface ImageCollectionViewCell : UICollectionViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIButton *commentButton;
 
 @end

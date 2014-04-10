@@ -32,9 +32,9 @@
     
     //[self CreateRandomPhotosForUsers];
     
-    //[self queryParseForUserPhotos];
+    [self queryParseForUserPhotos];
     
-    [self getLikedPhotos];
+    //[self getLikedPhotos];
     
     
     UITabBar *tabBar = self.tabBarController.tabBar;

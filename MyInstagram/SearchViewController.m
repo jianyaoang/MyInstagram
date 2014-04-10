@@ -66,10 +66,6 @@
     {
         if (!error)
         {
-            // The find succeeded.
-            //NSLog(@"Successfully retrieved %uld photos.", objects.count);
-            
-            //assign result array of photos to our array
             users = objects;
             [searchCollectionView reloadData];
         }

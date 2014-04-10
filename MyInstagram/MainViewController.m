@@ -24,7 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
     photos = [NSMutableArray new];
     
     //assign an automated user
@@ -127,6 +127,14 @@
 
 }
 
+
+
+
+- (IBAction)onPhotoSingleTapped:(UITapGestureRecognizer *)sender
+{
+    [self performSegueWithIdentifier:@"ShowCommentTableView" sender:self];
+    
+}
 
 //temp method to get photos liked by a user
 -(void)getLikedPhotos
@@ -232,14 +240,20 @@
 {
     
     //create tap gesture recognizer
-    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onPhotoDoubleTapped:)];
+    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onPhotoDoubleTapped:)];
+    
+    UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onPhotoSingleTapped:)];
     
     //set number of taps required
-    gestureRecognizer.numberOfTapsRequired = 2;
+    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+    singleTapGestureRecognizer.numberOfTapsRequired = 1;
     
     
     //add tap gesture to view
-    [self.view addGestureRecognizer:gestureRecognizer];
+    [self.view addGestureRecognizer:doubleTapGestureRecognizer];
+    [self.view addGestureRecognizer:singleTapGestureRecognizer];
+    
+    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
    
     
     ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageCellIdentifier" forIndexPath:indexPath];
@@ -258,7 +272,6 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(ImageCollectionViewCell*)sender
 {
-
     CommentTableView* vc = segue.destinationViewController;
     NSIndexPath* indexPath = [myCollectionView indexPathForCell:sender];
     vc.photo = photos[indexPath.row];

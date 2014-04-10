@@ -57,10 +57,6 @@
 {
     PFObject *comment = [PFObject objectWithClassName:@"Activity"];
     comment[@"comment"] = commentTextView.text;
-//    comment[@"ActivityType"] = commentTextView.text;
-//    comment[@"fromUser"] = commentTextView.text;
-//    comment[@"toUser"] = commentTextView.text;
-//    comment[@"photo"] = commentTextView.text;
     [comment setObject:@"comment" forKey:@"ActivityType"];
     [comment setObject:[PFUser currentUser] forKey:@"fromUser"];
     
@@ -76,9 +72,6 @@
         }
     }];
 }
-
-
-
 
 
 @end

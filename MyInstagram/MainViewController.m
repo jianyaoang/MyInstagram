@@ -260,9 +260,6 @@
     return cell;
 }
 
-
-
-
 //-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton*)sender
 //{
 //    NSLog(@"gesture state %d",doubleTapGestureRecognizer.state);
@@ -284,9 +281,11 @@
 //    vc.photo = photos[indexPath.row];
 //}
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton*)sender
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(CommentButton*)sender
 {
     CommentTableView *commentView = segue.destinationViewController;
+    commentView.photo = photos[sender.indexPath.row];
+    NSLog(@"button.indexPath is %@",commentView.photo);
 }
 
 

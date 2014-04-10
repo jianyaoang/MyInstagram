@@ -10,9 +10,7 @@
 #import <Parse/Parse.h>
 @interface FollowingViewController ()
 {
-    NSMutableArray* photos;
-    NSMutableArray* tempPhotos;
-    IBOutlet UITableView *followingTableView;
+    //IBOutlet UITableView *followingTableView;
 }
 
 @end
@@ -22,120 +20,80 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
+    if (self)
+    {
+        
     }
     return self;
 }
 
 - (void)viewDidLoad
 {
-    self.parseClassName = @"Activity";
-
+    self.parseClassName = @"Photo";
     [super viewDidLoad];
-    
-    //[self createFollowingActivitesForUser:nil];
-    
-    [self getFollowingPhotos];
-    
-    
-}
 
-- (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
-{
-    PFTableViewCell* cell = [super tableView:tableView cellForRowAtIndexPath:indexPath object:object];
-    cell.imageView.file = photos[indexPath.row];
-    return cell;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return photos.count;
 }
 
 
-//temp method to get photos liked by a user
--(void)getFollowingPhotos
+
+- (PFQuery *)queryForTable
 {
-    NSLog(@"get following photos");
-    
     //set the object class to look for activites
     PFQuery *activityQuery = [PFQuery queryWithClassName:@"Activity"];
     
     //set the field to search and the value of the field
     [activityQuery whereKey:@"ActivityType" equalTo:@"follow"];
-    //[activityQuery whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+    [activityQuery whereKey:@"fromUser" equalTo:[PFUser currentUser]];
     
-    [activityQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
-     {
-         if (!error)
-         {
-             // The find succeeded.
-             NSLog(@"Successfully retrieved %d liked photos.", objects.count);
-             
-             //loop over all the activities and get the photo for each one,
-             //then add it to the photo array
-             for (PFObject *activity in objects)
-             {
-                 // This does not require a network access.
-                 PFObject *photo = activity[@"photo"];
-                 [photos addObject:photo];
-                 
-                 NSLog(@"retrieved related photo: %@", photo);
-             }
-             
-             [followingTableView reloadData];
-         }
-         else
-         {
-             // Log details of the failure
-             NSLog(@"Error: %@ %@", error, [error userInfo]);
-         }
-     }];
-    
-}
-
-
-//temp method to get photos liked by a user
--(void)getPhotos
-{
-    
-    //set the object class to look for activites
-    PFQuery *activityQuery = [PFQuery queryWithClassName:@"Photo"];
-    
-    //set the field to search and the value of the field
-    [activityQuery whereKey:@"user" equalTo:@"ip69EIBEtb"];
-    
-    // Include the post data with each comment
+    //include the actual photo, not the link to allow the subquery to find the photos
     [activityQuery includeKey:@"photo"];
     
-    [activityQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
-     {
-         if (!error)
-         {
-             // The find succeeded.
-             //NSLog(@"Successfully retrieved %d liked photos.", objects.count);
-             
-             //loop over all the activities and get the photo for each one,
-             //then add it to the photo array
-             for (PFObject *activity in objects)
-             {
-                 // This does not require a network access.
-                 PFObject *photo = activity[@"photo"];
-                 [photos addObject:photo];
-                 
-                 NSLog(@"retrieved related photo: %@", photo);
-             }
-             
-             [followingTableView reloadData];
-         }
-         else
-         {
-             // Log details of the failure
-             NSLog(@"Error: %@ %@", error, [error userInfo]);
-         }
-     }];
+    PFQuery *photoQuery = [PFQuery queryWithClassName:@"Photo"];
     
+    [photoQuery whereKey:@"image" matchesKey:@"photo" inQuery:activityQuery];
+    
+    return photoQuery;
 }
+
+////temp method to get photos liked by a user
+//-(void)getFollowingPhotos
+//{
+//    NSLog(@"get following photos");
+//    
+//    //set the object class to look for activites
+//    PFQuery *activityQuery = [PFQuery queryWithClassName:@"Activity"];
+//    
+//    //set the field to search and the value of the field
+//    [activityQuery whereKey:@"ActivityType" equalTo:@"follow"];
+//    [activityQuery whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+//    
+//    [activityQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+//     {
+//         if (!error)
+//         {
+//             // The find succeeded.
+//             NSLog(@"Successfully retrieved %d following photos.", objects.count);
+//             
+//             //loop over all the activities and get the photo for each one,
+//             //then add it to the photo array
+//             for (PFObject *activity in objects)
+//             {
+//                 PFObject *photo = activity[@"photo"];
+//                 [photos addObject:photo];
+//                 
+//                 NSLog(@"retrieved related photo: %@", photo);
+//             }
+//             
+//             [followingTableView reloadData];
+//         }
+//         else
+//         {
+//             // Log details of the failure
+//             NSLog(@"Error: %@ %@", error, [error userInfo]);
+//         }
+//     }];
+//    
+//}
+
 
 @end

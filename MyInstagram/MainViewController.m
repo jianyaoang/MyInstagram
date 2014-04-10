@@ -32,11 +32,9 @@
     //assign an automated user
     [PFUser enableAutomaticUser];
     
-    //[self CreateRandomPhotosForUsers];
+    //[self queryParseForUserPhotos];
     
-    [self queryParseForUserPhotos];
-    
-    //[self getLikedPhotos];
+    [self getLikedPhotos];
     
     
     UITabBar *tabBar = self.tabBarController.tabBar;
@@ -60,7 +58,8 @@
 }
 
 /*
- * Get the photos which are not related to the current user
+ * Get the photos which are not related to the current user. This needs to be changed to users we are
+ * actually following
  */
 - (void)queryParseForUserPhotos
 {
@@ -142,7 +141,7 @@
     [activityQuery whereKey:@"ActivityType" equalTo:@"like"];
     [activityQuery whereKey:@"fromUser" equalTo:[PFUser currentUser]];
     
-    // Include the post data with each comment
+    // Include the photo data with each comment
     [activityQuery includeKey:@"photo"];
     
     [activityQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
@@ -156,11 +155,9 @@
             //then add it to the photo array
             for (PFObject *activity in objects)
             {
-                // This does not require a network access.
+                
                 PFObject *photo = activity[@"photo"];
                 [photos addObject:photo];
-                
-                NSLog(@"retrieved related photo: %@", photo);
             }
             
             [myCollectionView reloadData];

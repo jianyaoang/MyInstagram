@@ -244,14 +244,11 @@
 
     
     ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageCellIdentifier" forIndexPath:indexPath];
+    CommentButton* button = (CommentButton*)cell.commentButton;
+    button.indexPath = indexPath;
     
-
-    //set number of taps required
-//    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
-
     //add tap gesture to view
     [self.view addGestureRecognizer:doubleTapGestureRecognizer];
-
     
 //    ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageCellIdentifier" forIndexPath:indexPath];
     
@@ -261,11 +258,6 @@
     NSData* data = [file getData];
     cell.imageView.image = [UIImage imageWithData:data];
     return cell;
-}
-
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    
 }
 
 //-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton*)sender
@@ -289,10 +281,11 @@
 //    vc.photo = photos[indexPath.row];
 //}
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton*)sender
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(CommentButton*)sender
 {
-    CommentTableView *tableView = segue.destinationViewController;
-    
+    CommentTableView *commentView = segue.destinationViewController;
+    commentView.photo = photos[sender.indexPath.row];
+    NSLog(@"button.indexPath is %@",commentView.photo);
 }
 
 

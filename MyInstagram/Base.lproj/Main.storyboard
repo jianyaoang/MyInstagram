@@ -116,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWl-Nv-9YS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2054" y="-1013"/>
+            <point key="canvasLocation" x="2072" y="-337"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -177,7 +177,6 @@
                                         </view>
                                         <connections>
                                             <outlet property="imageView" destination="eo7-8o-Kj8" id="Kfe-tI-p3k"/>
-                                            <segue destination="kF3-RX-CD5" kind="push" identifier="ShowCommentTableView" id="wfl-jI-Yqh"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -207,7 +206,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="xyl-6P-36Y">
-                            <rect key="frame" x="0.0" y="118" width="320" height="54"/>
+                            <rect key="frame" x="0.0" y="54" width="320" height="54"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DaI-Qx-rUN">
@@ -232,7 +231,7 @@
                         </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CommentCellID" rowHeight="32" id="f71-tg-iM6">
-                                <rect key="frame" x="0.0" y="86" width="320" height="32"/>
+                                <rect key="frame" x="0.0" y="22" width="320" height="32"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f71-tg-iM6" id="FYy-Xd-GjM">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="31"/>
@@ -253,7 +252,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nSm-XA-PJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1643" y="-257"/>
+            <point key="canvasLocation" x="1553" y="-289"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="wiG-SJ-OsM">
@@ -356,7 +355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VsG-8E-SYM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2050" y="248"/>
+            <point key="canvasLocation" x="1553" y="368"/>
         </scene>
         <!--Profile Following View Controller-->
         <scene sceneID="6r0-rQ-7mv">
@@ -550,7 +549,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oDr-9X-6ik" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+
             <point key="canvasLocation" x="2615" y="445"/>
+
         </scene>
         <!--Search View Controller-->
         <scene sceneID="YSk-Ie-ngd">

@@ -18,19 +18,9 @@
 
 @implementation FollowingViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self)
-    {
-        
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
-    self.parseClassName = @"Photo";
+    self.parseClassName = @"Activity";
 
     [super viewDidLoad];
 
@@ -48,22 +38,22 @@
     //include the actual photo, not the link to allow the subquery to find the photos
     [activityQuery includeKey:@"photo"];
     
-    PFQuery *photoQuery = [PFQuery queryWithClassName:@"Photo"];
-    [photoQuery whereKey:@"image" matchesKey:@"photo" inQuery:activityQuery];
-    return photoQuery;
+//    PFQuery *photoQuery = [PFQuery queryWithClassName:@"Photo"];
+//    [photoQuery whereKey:@"image" matchesKey:@"photo" inQuery:activityQuery];
+    return activityQuery;
 }
+
 
 - (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
     PFTableViewCell* cell = [super tableView:tableView cellForRowAtIndexPath:indexPath object:object];
+    NSLog(@"object %@",object);
     
-    cell.imageView.file = [object objectForKey:@"image"];
-    
-    [cell.imageView loadInBackground:^(UIImage *image, NSError *error)
-    {
-        cell.imageView.image = image;
-    }];
-    
+    cell.imageView.image = [object objectForKey:@"photo"];
+ 
+    [cell.imageView loadInBackground];
+
+
     return cell;
 }
 

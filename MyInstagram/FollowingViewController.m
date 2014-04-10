@@ -20,28 +20,26 @@
 
 - (void)viewDidLoad
 {
-    self.parseClassName = @"Activity";
+    self.parseClassName = @"Photo";
 
     [super viewDidLoad];
 
 }
 
-- (PFQuery *)queryForTable
-{
-    //set the object class to look for activites
-    PFQuery *activityQuery = [PFQuery queryWithClassName:@"Activity"];
-    
-    //set the field to search and the value of the field
-    [activityQuery whereKey:@"ActivityType" equalTo:@"follow"];
-    [activityQuery whereKey:@"fromUser" equalTo:[PFUser currentUser]];
-    
-    //include the actual photo, not the link to allow the subquery to find the photos
-    [activityQuery includeKey:@"photo"];
-    
-//    PFQuery *photoQuery = [PFQuery queryWithClassName:@"Photo"];
-//    [photoQuery whereKey:@"image" matchesKey:@"photo" inQuery:activityQuery];
-    return activityQuery;
-}
+//- (PFQuery *)queryForTable
+//{
+//    //set the object class to look for activites
+//    PFQuery *activityQuery = [PFQuery queryWithClassName:@"Activity"];
+//    
+//    //set the field to search and the value of the field
+//    [activityQuery whereKey:@"ActivityType" equalTo:@"follow"];
+//    [activityQuery whereKey:@"fromUser" equalTo:[PFUser currentUser]];
+//    
+//    //include the actual photo, not the link to allow the subquery to find the photos
+//    [activityQuery includeKey:@"photo"];
+//
+//    return activityQuery;
+//}
 
 
 - (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
@@ -49,9 +47,11 @@
     PFTableViewCell* cell = [super tableView:tableView cellForRowAtIndexPath:indexPath object:object];
     NSLog(@"object %@",object);
     
-    cell.imageView.image = [object objectForKey:@"photo"];
- 
-    [cell.imageView loadInBackground];
+    cell.imageView.file = object[@"image"];
+    [cell.imageView loadInBackground:^(UIImage *image, NSError *error)
+    {
+    
+    }];
 
 
     return cell;

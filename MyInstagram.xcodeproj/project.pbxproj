@@ -45,6 +45,7 @@
 		41526B8118F35E26008F8ECE /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41526B8018F35E26008F8ECE /* SystemConfiguration.framework */; };
 		4195AAE918F4B8A800133091 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4195AAE818F4B8A800133091 /* Images.xcassets */; };
 		41BE227A18F6E14800A5EB7E /* CommentButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 41BE227918F6E14800A5EB7E /* CommentButton.m */; };
+		41F3A1B318F6FE3D00F68266 /* FollowingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F3A1B218F6FE3D00F68266 /* FollowingTableViewCell.m */; };
 		CE4AD4A218F5DB93001FD9D4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4AD4A118F5DB93001FD9D4 /* LoginViewController.m */; };
 		CE4AD4A518F5DC0E001FD9D4 /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4AD4A418F5DC0E001FD9D4 /* SignupViewController.m */; };
 		CEB19CC718F4D6F9009D972A /* FollowingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB19CC618F4D6F9009D972A /* FollowingViewController.m */; };
@@ -117,6 +118,8 @@
 		4195AAE818F4B8A800133091 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		41BE227818F6E14800A5EB7E /* CommentButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentButton.h; sourceTree = "<group>"; };
 		41BE227918F6E14800A5EB7E /* CommentButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentButton.m; sourceTree = "<group>"; };
+		41F3A1B118F6FE3D00F68266 /* FollowingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowingTableViewCell.h; sourceTree = "<group>"; };
+		41F3A1B218F6FE3D00F68266 /* FollowingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowingTableViewCell.m; sourceTree = "<group>"; };
 		CE4AD4A018F5DB93001FD9D4 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		CE4AD4A118F5DB93001FD9D4 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		CE4AD4A318F5DC0E001FD9D4 /* SignupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
@@ -207,6 +210,8 @@
 				41526B2118F33C8B008F8ECE /* AppDelegate.h */,
 				41526B2218F33C8B008F8ECE /* AppDelegate.m */,
 				41526B6818F350F3008F8ECE /* Main.storyboard */,
+				41F3A1B118F6FE3D00F68266 /* FollowingTableViewCell.h */,
+				41F3A1B218F6FE3D00F68266 /* FollowingTableViewCell.m */,
 				CEB19CC818F4D746009D972A /* NewsViewController.h */,
 				CEB19CC918F4D746009D972A /* NewsViewController.m */,
 				CEB19CC518F4D6F9009D972A /* FollowingViewController.h */,
@@ -392,6 +397,7 @@
 				41526B4918F33D83008F8ECE /* ImageCollectionViewCell.m in Sources */,
 				41526B6418F34DC3008F8ECE /* CaptionTextView.m in Sources */,
 				41526B4C18F33EAB008F8ECE /* FriendImageView.m in Sources */,
+				41F3A1B318F6FE3D00F68266 /* FollowingTableViewCell.m in Sources */,
 				41526B4F18F34040008F8ECE /* SearchViewController.m in Sources */,
 				CEB19CCA18F4D746009D972A /* NewsViewController.m in Sources */,
 				41526B6118F34CD3008F8ECE /* ShareViewController.m in Sources */,

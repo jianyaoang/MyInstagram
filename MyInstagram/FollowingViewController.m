@@ -10,10 +10,7 @@
 #import <Parse/Parse.h>
 @interface FollowingViewController ()
 {
-
-    NSArray* photos;
-}
-
+    NSMutableArray* photos;
     IBOutlet UITableView *followingTableView;
 }
 
@@ -32,13 +29,15 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"Following viewDidLoad");
     [super viewDidLoad];
     
-    [self getFollowingPhotos];
+    [self createFollowingActivitesForUser:nil];
+    
+    //[self getFollowingPhotos];
     
     
 }
-
 
 - (PFTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath object:(PFObject *)object
 {
@@ -46,6 +45,11 @@
     cell.imageView.file = [object objectForKey:@"photo"];
     [cell.imageView loadInBackground];
     return cell;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return photos.count;
 }
 
 
@@ -76,7 +80,7 @@
              {
                  // This does not require a network access.
                  PFObject *photo = activity[@"photo"];
-                 //[photos addObject:photo];
+                 [photos addObject:photo];
                  
                  NSLog(@"retrieved related photo: %@", photo);
              }
@@ -94,6 +98,8 @@
 
 - (void)createFollowingActivitesForUser:(PFObject*)photo
 {
+    NSLog(@"createFollowingActivitesForUser");
+    
     PFObject *follow = [PFObject objectWithClassName:@"Activity"];
     [follow setObject:@"follow" forKey:@"ActivityType"];
     [follow setObject:[PFUser currentUser] forKey:@"fromUser"];

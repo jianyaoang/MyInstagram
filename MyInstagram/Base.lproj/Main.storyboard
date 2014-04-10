@@ -76,7 +76,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HCL-Iu-mwu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1427" y="-932"/>
+            <point key="canvasLocation" x="1483" y="-932"/>
         </scene>
         <!--Followers View Controller-->
         <scene sceneID="Eq7-JN-IJ2">
@@ -191,7 +191,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1177" y="-289"/>
+            <point key="canvasLocation" x="1041" y="-289"/>
         </scene>
         <!--Comment Table View-->
         <scene sceneID="8YT-tX-a3i">
@@ -612,7 +612,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uSI-VJ-y3k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="588" y="462"/>
+            <point key="canvasLocation" x="632" y="478"/>
         </scene>
         <!--Signup View Controller-->
         <scene sceneID="SfF-zS-tJe">
@@ -738,7 +738,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="VYl-ZS-CZd" kind="push" identifier="showFollowers" id="mzD-I6-p1g"/>
+                        <segue destination="VYl-ZS-CZd" kind="relationship" relationship="rootViewController" id="45L-cH-zSG"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="im9-tc-Cbj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -800,7 +800,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fxi-Da-27B" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="651" y="-289"/>
+            <point key="canvasLocation" x="599" y="-281"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

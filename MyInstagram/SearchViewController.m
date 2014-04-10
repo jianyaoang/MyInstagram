@@ -66,10 +66,6 @@
     {
         if (!error)
         {
-            // The find succeeded.
-            //NSLog(@"Successfully retrieved %uld photos.", objects.count);
-            
-            //assign result array of photos to our array
             users = objects;
             [searchCollectionView reloadData];
         }
@@ -87,7 +83,7 @@
     //set the object class to look for
     PFQuery *query = [PFQuery queryWithClassName:@"User"];
     
-    NSDate *date = [[NSDate alloc]initWithTimeIntervalSinceNow:-86400];
+    NSDate *date = [[NSDate alloc]initWithTimeIntervalSinceNow:-186400];
   
     //set the field to search and the value of the field
     [query whereKey:@"updatedAt" greaterThan:date];

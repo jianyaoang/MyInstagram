@@ -29,7 +29,6 @@
 		41526B5B18F34987008F8ECE /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B5A18F34987008F8ECE /* EditViewController.m */; };
 		41526B5E18F34C1E008F8ECE /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B5D18F34C1E008F8ECE /* CameraViewController.m */; };
 		41526B6118F34CD3008F8ECE /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B6018F34CD3008F8ECE /* ShareViewController.m */; };
-		41526B6418F34DC3008F8ECE /* CaptionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B6318F34DC3008F8ECE /* CaptionTextView.m */; };
 		41526B6718F34F9E008F8ECE /* FollowersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B6618F34F9E008F8ECE /* FollowersViewController.m */; };
 		41526B6A18F350F3008F8ECE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 41526B6818F350F3008F8ECE /* Main.storyboard */; };
 		41526B6D18F35197008F8ECE /* ProfileFollowingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41526B6C18F35197008F8ECE /* ProfileFollowingViewController.m */; };
@@ -97,8 +96,6 @@
 		41526B5D18F34C1E008F8ECE /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		41526B5F18F34CD3008F8ECE /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
 		41526B6018F34CD3008F8ECE /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
-		41526B6218F34DC3008F8ECE /* CaptionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaptionTextView.h; sourceTree = "<group>"; };
-		41526B6318F34DC3008F8ECE /* CaptionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaptionTextView.m; sourceTree = "<group>"; };
 		41526B6518F34F9E008F8ECE /* FollowersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FollowersViewController.h; sourceTree = "<group>"; };
 		41526B6618F34F9E008F8ECE /* FollowersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FollowersViewController.m; sourceTree = "<group>"; };
 		41526B6918F350F3008F8ECE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -215,8 +212,6 @@
 				41526B6C18F35197008F8ECE /* ProfileFollowingViewController.m */,
 				41526B6518F34F9E008F8ECE /* FollowersViewController.h */,
 				41526B6618F34F9E008F8ECE /* FollowersViewController.m */,
-				41526B6218F34DC3008F8ECE /* CaptionTextView.h */,
-				41526B6318F34DC3008F8ECE /* CaptionTextView.m */,
 				41526B5F18F34CD3008F8ECE /* ShareViewController.h */,
 				41526B6018F34CD3008F8ECE /* ShareViewController.m */,
 				41526B5C18F34C1E008F8ECE /* CameraViewController.h */,
@@ -390,7 +385,6 @@
 				41526B5E18F34C1E008F8ECE /* CameraViewController.m in Sources */,
 				CE4AD4A218F5DB93001FD9D4 /* LoginViewController.m in Sources */,
 				41526B4918F33D83008F8ECE /* ImageCollectionViewCell.m in Sources */,
-				41526B6418F34DC3008F8ECE /* CaptionTextView.m in Sources */,
 				41526B4C18F33EAB008F8ECE /* FriendImageView.m in Sources */,
 				41526B4F18F34040008F8ECE /* SearchViewController.m in Sources */,
 				CEB19CCA18F4D746009D972A /* NewsViewController.m in Sources */,

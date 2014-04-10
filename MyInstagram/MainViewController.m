@@ -57,7 +57,9 @@
 
 }
 
-
+/*
+ * Get the photos which are not related to the current user
+ */
 - (void)queryParseForUserPhotos
 {
     //set the object class to look for
@@ -140,18 +142,12 @@
     // Include the post data with each comment
     [activityQuery includeKey:@"photo"];
     
-    //now we need to search the query results for the photos
-//    PFQuery *photoQuery = [PFQuery queryWithClassName:@"Photo"];
-//    
-//    //query the likes that were found to get th photos DOES NOT WORK ON POINTERS!!
-//    [photoQuery whereKey:@"user" matchesKey:@"toUser" inQuery:activityQuery];
-    
-    
-    [activityQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    [activityQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+    {
         if (!error)
         {
             // The find succeeded.
-            NSLog(@"Successfully retrieved %d liked photos.", objects.count);
+            //NSLog(@"Successfully retrieved %d liked photos.", objects.count);
             
             //loop over all the activities and get the photo for each one,
             //then add it to the photo array

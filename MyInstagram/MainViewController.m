@@ -242,18 +242,18 @@
     //create tap gesture recognizer
     UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onPhotoDoubleTapped:)];
     
-    UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onPhotoSingleTapped:)];
+//    UITapGestureRecognizer *singleTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onPhotoSingleTapped:)];
     
     //set number of taps required
     doubleTapGestureRecognizer.numberOfTapsRequired = 2;
-    singleTapGestureRecognizer.numberOfTapsRequired = 1;
+//    singleTapGestureRecognizer.numberOfTapsRequired = 1;
     
     
     //add tap gesture to view
     [self.view addGestureRecognizer:doubleTapGestureRecognizer];
-    [self.view addGestureRecognizer:singleTapGestureRecognizer];
+//    [self.view addGestureRecognizer:singleTapGestureRecognizer];
     
-    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
+//    [singleTapGestureRecognizer requireGestureRecognizerToFail:doubleTapGestureRecognizer];
    
     
     ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageCellIdentifier" forIndexPath:indexPath];
@@ -262,7 +262,7 @@
     //    PFObject* user = users[indexPath.row];
     //    PFFile* file = user[@"photo"];
     
-    //retreive image from photo obejct
+    //retreive image from photo object
     PFObject *photo = photos[indexPath.row];
     PFFile* file = photo[@"image"];
     NSData* data = [file getData];

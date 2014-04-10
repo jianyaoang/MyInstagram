@@ -10,8 +10,13 @@
 #import <Parse/Parse.h>
 @interface FollowingViewController ()
 {
+
     NSArray* photos;
 }
+
+    IBOutlet UITableView *followingTableView;
+}
+
 @end
 
 @implementation FollowingViewController

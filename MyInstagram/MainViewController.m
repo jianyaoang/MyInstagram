@@ -10,11 +10,13 @@
 #import "ImageCollectionViewCell.h"
 #import <Parse/Parse.h>
 #import "CommentTableView.h"
+#import "CommentButton.h"
 
 @interface MainViewController () <UICollectionViewDataSource, UICollectionViewDelegate>
 {
     NSMutableArray *photos;
     IBOutlet UICollectionView *myCollectionView;
+    UITapGestureRecognizer *doubleTapGestureRecognizer;
 }
 
 @end
@@ -232,7 +234,7 @@
 {
     
     //create tap gesture recognizer
-    UITapGestureRecognizer *doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onPhotoDoubleTapped:)];
+    doubleTapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(onPhotoDoubleTapped:)];
 
     //set number of taps required
     doubleTapGestureRecognizer.numberOfTapsRequired = 2;
@@ -243,6 +245,16 @@
     
     ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageCellIdentifier" forIndexPath:indexPath];
     
+
+    //set number of taps required
+//    doubleTapGestureRecognizer.numberOfTapsRequired = 2;
+
+    //add tap gesture to view
+    [self.view addGestureRecognizer:doubleTapGestureRecognizer];
+
+    
+//    ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"imageCellIdentifier" forIndexPath:indexPath];
+    
     //retreive image from photo obejct
     PFObject *photo = photos[indexPath.row];
     PFFile* file = photo[@"image"];
@@ -251,16 +263,36 @@
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"didSelectItemAtIndexPath");
+    
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(ImageCollectionViewCell*)sender
-{
+//-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton*)sender
+//{
+//    NSLog(@"gesture state %d",doubleTapGestureRecognizer.state);
+//    
+//    if (doubleTapGestureRecognizer.state == UIGestureRecognizerStatePossible)
+//    {
+//        return;
+//    }
 //    CommentTableView* vc = segue.destinationViewController;
 //    NSIndexPath* indexPath = [myCollectionView indexPathForCell:sender];
 //    vc.photo = photos[indexPath.row];
+    
+    //button to view to ImageCollectionCell => sender.superview.superview
+//    UIView* view = (UIView*)sender.superview;
+//    ImageCollectionViewCell *collectionViewCell = (ImageCollectionViewCell*)view.superview;
+//    ImageCollectionViewCell *collectionViewCell = (ImageCollectionViewCell*)sender.superview;
+    
+//    NSIndexPath *indexPath = [myCollectionView indexPathForCell:collectionViewCell];
+//    vc.photo = photos[indexPath.row];
+//}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton*)sender
+{
+    CommentTableView *tableView = segue.destinationViewController;
+    
 }
 
 
